@@ -76,7 +76,7 @@ public class Main {
         Car car15 = new Car(bmw1, true, transportMarket, "standard", dimensionsArrayList1);
 
 
-        Car.getCountries("BMW", 300);
+        Car.getCountries("BMW", 300, true);
 
 
     }

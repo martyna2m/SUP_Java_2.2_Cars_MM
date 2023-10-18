@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Market {
     private String name;
-    List<Country> countries;
+    private List<Country> countries;
 
     public Market(String name, List<Country> countries) {
         this.name = name;

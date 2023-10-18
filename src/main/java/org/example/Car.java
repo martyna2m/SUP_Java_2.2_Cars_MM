@@ -10,7 +10,7 @@ public class Car {
     private boolean isAutomaticGear;
     private Market market;
     private String segment;
-    ArrayList<Dimension> dimension;
+    private ArrayList<Dimension> dimension;
 
     private static ArrayList<Car> cars = new ArrayList<>();
 
@@ -42,21 +42,26 @@ public class Car {
     }
 
 
-    public static void getCountries(String carBrand, int trunkCapacity) {
+    public static void getCountries(String carBrand, int trunkCapacity, boolean isAutomaticGear) {
+        boolean success = false;
         Set<Country> setOfCountries = new HashSet<>();
         for (Car c : cars) {
             if (c.getProducer().getModel().equals(carBrand)) {
-                if (c.getIsAutomaticGear()) {
+                if (c.getIsAutomaticGear() == isAutomaticGear) {
                     for (Dimension dimOption : c.getDimension()) {
                         if (dimOption.getTrunkCapacity() > trunkCapacity) {
                             List<Country> ctrList = c.getMarket().getCountries();
                             setOfCountries.addAll(ctrList);
+                            success = true;
                         }
                     }
                 }
             }
+
         }
 
-        System.out.println(setOfCountries);
+        if (!success) {
+            System.out.println("No items found");
+        } else System.out.println(setOfCountries);
     }
 }
