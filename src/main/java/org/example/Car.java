@@ -61,7 +61,7 @@ public class Car {
         }
 
         if (!success) {
-            System.out.println("No items found");
+            System.out.println("No items that meet conditions were found");
         } else System.out.println(setOfCountries);
     }
 }
